@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 1000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -12,7 +12,13 @@
     "@nestjs/common": "^10.2.9",
     "@nestjs/core": "^10.2.9",
     "@nestjs/platform-express": "^10.2.9",
+    "@prisma/client": "^5.6.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "dotenv-cli": "^7.3.0",
+    "init": "^0.1.2",
     "next": "14.0.3",
+    "prisma": "^5.6.0",
     "react": "^18",
     "react-dom": "^18",
     "reflect-metadata": "^0.1.13",

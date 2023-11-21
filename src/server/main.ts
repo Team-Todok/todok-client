@@ -2,7 +2,7 @@ import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import * as http from "http";
 import { NextApiHandler } from "next";
-import { INestApplication } from "@nestjs/common";
+import { INestApplication, ValidationPipe } from "@nestjs/common";
 
 export module Main {
   let app: INestApplication;
@@ -10,6 +10,13 @@ export module Main {
   export async function getApp() {
     if (!app) {
       app = await NestFactory.create(AppModule, { bodyParser: false });
+      app.useGlobalPipes(
+        new ValidationPipe({
+          whitelist: true,
+          forbidNonWhitelisted: true,
+          transform: true,
+        })
+      );
       app.setGlobalPrefix("api");
       await app.init();
     }
