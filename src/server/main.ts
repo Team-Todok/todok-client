@@ -3,6 +3,7 @@ import { AppModule } from "./app.module";
 import * as http from "http";
 import { NextApiHandler } from "next";
 import { INestApplication, ValidationPipe } from "@nestjs/common";
+import { setupSwagger } from "./util/setupSwagger";
 
 export module Main {
   let app: INestApplication;
@@ -10,6 +11,7 @@ export module Main {
   export async function getApp() {
     if (!app) {
       app = await NestFactory.create(AppModule, { bodyParser: false });
+      setupSwagger(app);
       app.useGlobalPipes(
         new ValidationPipe({
           whitelist: true,
@@ -17,6 +19,7 @@ export module Main {
           transform: true,
         })
       );
+
       app.setGlobalPrefix("api");
       await app.init();
     }

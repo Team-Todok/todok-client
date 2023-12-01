@@ -1,0 +1,28 @@
+###
+GET http://localhost:1000/api/user
+Content-Type: application/json
+
+###
+GET http://localhost:1000/api/user/1
+Content-Type: application/json
+
+###
+POST http://localhost:1000/api/user
+content-Type: application/json
+
+{
+  "name": "http test",
+  "email": "http.test@email.com"
+}
+
+###
+PATCH http://localhost:1000/api/user/1
+Content-Type: application/json
+
+{
+  "email" : ""
+}
+
+### 
+DELETE http://localhost:1000/api/user/5
+Content-Type: application/json
