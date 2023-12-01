@@ -8,7 +8,6 @@ import {
   Delete,
 } from "@nestjs/common";
 import { UserService } from "./user.service";
-import { User } from "@prisma/client";
 import * as DTO from "./dto";
 
 @Controller("user")
@@ -26,7 +25,7 @@ export class UserController {
   }
 
   @Get("/:id")
-  async findUserById(@Param("id") id: number): Promise<User | null> {
+  async findUserById(@Param("id") id: number) {
     return await this.userService.findUserById(id);
   }
 
