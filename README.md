@@ -1,1 +1,1 @@
-토독(Reading Talk) Client
+토독(Todok) Client
